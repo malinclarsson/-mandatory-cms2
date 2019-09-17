@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "./Navbar";
 
-const Checkout = () => {
+const NotFound = () => {
   return (
     <div>
       <Navbar />
-      <h1>Checkout</h1>
+      <h1>Not Found 404</h1>
     </div>
   );
 };
-export default Checkout;
+export default NotFound;

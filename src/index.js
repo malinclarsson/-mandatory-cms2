@@ -7,7 +7,7 @@ import Details from './components/Details.js';
 import Cart from './components/Cart.js';
 import Checkout from './components/Checkout.js';
 import Thanks from './components/Thanks.js';
-import NotFound from './components/NotFound.jsx';
+import NotFound from './components/NotFound.js';
 
 const App = () => {
   return (
