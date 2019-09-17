@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../index.css";
 import axios from "axios";
 import Navbar from "./Navbar";
-import { FaCartArrowDown } from 'react-icons/fa';
+import { FaCartArrowDown } from "react-icons/fa";
 
 const Main = () => {
   const [results, setResult] = useState([]);
@@ -38,19 +38,24 @@ const Main = () => {
       <div className="container">
         {results.map(result => (
           <div className="card" key={result._id}>
-            <Link to={`/Products/${result._id}`}>
+            {/*<Link to={`/Products/${result._id}`}>
               <h3>{result.name}</h3>
-            </Link>
+              </Link> */}
+            <h3>{result.name}</h3>
             <p>
               <img
                 src={"http://192.168.99.102:8080/" + result.img.path}
                 alt={"avatar"}
               ></img>
             </p>
+            <p className="text">{result.description}</p>
             <div className="numbers">
-              <p>price: {result.stock}sek</p>
+              <p>Price: {result.stock}sek</p>
               <p>In stock: {result.stock}</p>
-              <button className='buyBTS'> <FaCartArrowDown /> </button>
+              <button className="buyBTS">
+                {" "}
+                <FaCartArrowDown />{" "}
+              </button>
             </div>
           </div>
         ))}

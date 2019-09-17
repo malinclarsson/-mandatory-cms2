@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import { FaTrashAlt } from 'react-icons/fa';
 
 const Cart = () => {
+	// Local storage
   return (
     <div>
       <Navbar />
@@ -27,7 +28,7 @@ const Cart = () => {
             <td>Antal</td>
             <td>Pris</td>
             <td>Slutsumma</td>
-            <td> <FaTrashAlt /> </td>
+            <button> <FaTrashAlt /> </button> {/* onClick={() => removeItem(cart)} */}
           </tr>
         </tbody>
       </table>

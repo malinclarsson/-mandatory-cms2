@@ -13,6 +13,7 @@ code {
 h1 {
   text-align: center;
 }
+
 /* Navbar */
 .link {
   font-size: 2rem;
@@ -33,6 +34,7 @@ h1 {
 .card {
   width: 20%;
   min-width: 450px;
+  height: auto;
   margin: 10px;
   line-height: 0rem;
   display: flex;
@@ -42,6 +44,10 @@ h1 {
   border-radius: 5px;
   box-shadow: 10px 10px 5px 0px #00000024;
   justify-content: space-evenly;
+}
+.text {
+  line-height: 20px;
+  padding: 20px;
 }
 img {
   height: 200px;
@@ -102,4 +108,27 @@ tbody tr:nth-child(2n+1){
   top: 50%;
 }
 
-
+/* Checkout */
+.formContainer {
+  display: flex;
+  justify-content: center;
+}
+form {
+  margin: 30px;
+  padding: 20px;
+  width: 450px;
+  border: solid lightgrey 1px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px 0px #00000024;
+}
+.formInput {
+  border: solid lightgrey 1px;
+  border-radius: 3px;
+  margin-left: 20px;
+  width: 200px;
+}
+.pay {
+  position: absolute;
+  right: 30%;
+  top: 50%;
+}

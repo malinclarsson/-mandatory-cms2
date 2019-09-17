@@ -1,46 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-//import styles from '../index.module.css';
+import Navbar from './Navbar';
+import { FaCartArrowDown } from 'react-icons/fa';
+
 
 const Details = (props) => {
-	const [details, setDetails] = useState(null);
+  const [result, setResult] = useState(null);
+    
+  useEffect(() => {
+      axios.get(`http://192.168.99.102:8080/api/collections/get/Products?filter[_id]=${props.match.params.id}`)
+          .then((res) => setResult(res.data.entries[0]));
 
-    useEffect(() => {
-        axios.get(`http://192.168.99.102:8080/api/collections/get/Products`)
-            .then((res) => setDetails(res.data.entries[0]));
-
-	}, []);
-
-
-  if (!details) {
-    return <p>Loading...</p>;
+  }, []);
+  /*
+  function addCart() {
+      props.setCart([...props.cart, result]);
+      alert("added to cart");
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      console.log("THIS ONE HERE" + cart);
+      
+      cart.push(result);
+      localStorage.setItem("cart", JSON.stringify(cart));
   }
-
-
-  console.log(details);
+  */
   return (
-    <body>
-      <div className='link'>
-        <Link to='/'>Products</Link>
-        <Link to='/Cart'>Cart</Link>
-      </div>
-      {details.map((details) => (
-        <div className='short' key={details._id}> 
-        <h2 >{details.name.dispaly}</h2>
-        <h2 >{details.description}</h2>
-          <p >In stock: {details.price}</p>
-          <p >
-                <img
-                  src={'http://192.168.99.102:8080/' + details.img.path}
-                  alt={'avatar'}
-                ></img>
+      <div>
+        <Navbar />
+        
+        {!result ? <p>Loading...</p> : 
+            <div className='short' key={result._id}> 
+            <h2 >{result.name}</h2>
+            <h2 >{result.description}</h2>
+            <p >Price: {result.price}sek</p>
+            <p >In stock: {result.stock}</p>
+            <p >
+              <img
+                src={"http://192.168.99.102:8080/" + result.Img.path}
+                alt='product'>
+              </img>
               </p>
-          <hr></hr>
+                <button className='buyBTS'> <FaCartArrowDown /> </button> {/* onClick={addCart} */}
+            </div>
+        })}
         </div>
-      ))}
-    </body>
-  );
-};
+  )  
+}
 
 export default Details;
+
+/*
+
+  
+          
+
+*/
