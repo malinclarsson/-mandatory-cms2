@@ -32,7 +32,7 @@ const Checkout = () => {
           </div>
 
           <div>
-            <label>Mailadress</label>
+            <label>Email</label>
             <input
               type='email'
               placeholder='your.name@example.com'
@@ -40,6 +40,35 @@ const Checkout = () => {
               className='formInput'
             ></input>
           </div>
+
+										<div>
+            <label>Street</label>
+            <input
+              type='text'
+              placeholder='Street 1'
+              required
+              className='formInput'
+            ></input>
+          </div>
+										<div>
+            <label>Zip code</label>
+            <input
+              type='text'
+              placeholder='000 00'
+              required
+              className='formInput'
+            ></input>
+          </div>
+										<div>
+            <label>City</label>
+            <input
+              type='text'
+              placeholder='City'
+              required
+              className='formInput'
+            ></input>
+          </div>
+
         </form>
 								</div>
         <button type='submit' className='pay'>
