@@ -1,4 +1,4 @@
-import React from 'react';
+import React /*, { useState } */ from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -10,6 +10,7 @@ import Thanks from './components/Thanks.js';
 import NotFound from './components/NotFound.js';
 
 const App = () => {
+
   return (
     <Router>
       <Switch>

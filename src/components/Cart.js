@@ -28,7 +28,7 @@ const Cart = () => {
             <td>Antal</td>
             <td>Pris</td>
             <td>Slutsumma</td>
-            <button> <FaTrashAlt /> </button> {/* onClick={() => removeItem(cart)} */}
+            <button className='nope'> <FaTrashAlt /> </button> {/* onClick={() => removeItem(cart)} */}
           </tr>
         </tbody>
       </table>
