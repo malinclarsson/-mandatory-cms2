@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 import { FaTrashAlt } from 'react-icons/fa';
 
 const Cart = () => {
@@ -33,7 +34,7 @@ const Cart = () => {
         </tbody>
       </table>
 						</div>
-						<button className='checkout'>Go to checkout</button>
+						<button className='checkout' onClick={(<Link to='/Checkout'></Link>)}>Go to checkout</button>
     </div>
   );
 };

@@ -11,7 +11,7 @@ const Main = () => {
   const [initResult, setInitResult] = useState([]);
   const [page, setPage] = useState(1);
   const [max, setMax] = useState(1);
-  const limit = 4;
+  const limit = 6;
 
   useEffect(() => {
     axios
@@ -86,7 +86,7 @@ const Main = () => {
           </div>
         ))}
       </div>
-      <div>
+      <div className='pages'>
         <button onClick={() => setPage(page - 1)}>&lt;</button>
         <input type="number" min={1} max={max} value={page} />
         <button onClick={() => setPage(page + 1)}>&gt;</button>

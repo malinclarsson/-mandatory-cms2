@@ -72,6 +72,10 @@ img {
 .buyBTS:hover {
   color: orangered;
 }
+.pages {
+  margin: 10px;
+  padding-left: 30px;
+}
 
 /* Cart */
 .tableContainer {
@@ -115,6 +119,7 @@ tbody tr:nth-child(2n+1){
   border-radius: 5px;
   padding: 10px;
   box-shadow: 10px 10px 5px 0px #00000024;
+  cursor: pointer;
 }
 .nope {
   background-color: #eeeeee00;
@@ -125,6 +130,7 @@ tbody tr:nth-child(2n+1){
   display: flex;
   justify-content: center;
   padding-top: 20%;
+  cursor: pointer;
 }
 
 /* Checkout */
