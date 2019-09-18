@@ -7,7 +7,6 @@ import { FaCartArrowDown } from "react-icons/fa";
 
 const Main = () => {
   const [results, setResult] = useState([]);
-  // const [filterResult, setFilterResult] = useState([]);
   const [initResult, setInitResult] = useState([]);
   const [page, setPage] = useState(1);
   const [max, setMax] = useState(1);
@@ -29,13 +28,6 @@ const Main = () => {
       });
   }, [page]);
 
-  /*
-  function searchFilter(searchQuery) {
-    const regex = new RegExp(searchQuery, "i");
-    setFilterResult(results.filter(result => result.name.match(regex)));
-  }
-  */
-
   function showStock(checked) {
     if (checked) {
       setResult(results.filter(result => result.stock > 0));
@@ -49,14 +41,6 @@ const Main = () => {
       <Navbar />
 
       <div className="inStock">
-        {/*
-        <input
-          type="text"
-          placeholder="Search..."
-        
-          onChange={e => searchFilter(e.target.value)}
-        />
-        */}
         <br></br>
         In Stock :{" "}
         <input type="checkbox" onChange={e => showStock(e.target.checked)} />
