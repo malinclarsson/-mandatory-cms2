@@ -12,17 +12,7 @@ const Details = (props) => {
           .then((res) => setResult(res.data.entries[0]));
 
   }, []);
-  /*
-  function addCart() {
-      props.setCart([...props.cart, result]);
-      alert("added to cart");
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      console.log("THIS ONE HERE" + cart);
-      
-      cart.push(result);
-      localStorage.setItem("cart", JSON.stringify(cart));
-  }
-  */
+
   return (
       <div>
         <Navbar />
@@ -35,11 +25,11 @@ const Details = (props) => {
             <p >In stock: {result.stock}</p>
             <p >
               <img
-                src={"http://192.168.99.102:8080/" + result.Img.path}
+                src={"http://192.168.99.102:8080/" + result.img.path}
                 alt='product'>
               </img>
               </p>
-                <button className='buyBTS'> <FaCartArrowDown /> </button> {/* onClick={addCart} */}
+                <button className='buyBTS'> <FaCartArrowDown /> </button>
             </div>
         })}
         </div>
