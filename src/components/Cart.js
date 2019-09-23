@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaTrashAlt } from 'react-icons/fa';
 
 const Cart = () => {
-	// Local storage
+
   return (
     <div>
       <Navbar />

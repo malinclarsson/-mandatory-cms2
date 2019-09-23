@@ -11,7 +11,7 @@ const Details = (props) => {
       axios.get(`http://192.168.99.102:8080/api/collections/get/Products?filter[_id]=${props.match.params.id}`)
           .then((res) => setResult(res.data.entries[0]));
 
-  }, []);
+  }, [props.match.params.id]); // måste hämta sidan för varje id
 
   return (
       <div>
