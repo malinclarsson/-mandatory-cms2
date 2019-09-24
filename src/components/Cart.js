@@ -1,9 +1,41 @@
-import React from "react";
-import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
+import React/*,{ useState }*/ from 'react';
+import Navbar from './Navbar';
+import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
 
 const Cart = () => {
+
+  /*
+  const [result, setResult] = useState(JSON.parse(localStorage.getItem('cart')) || []); //cart ELLER tom array
+
+  function clearCart() { // is defined but never used
+    localStorage.deleteItem('cart');
+    console.log('Cart cleared');
+    window.location.reload();
+  }
+
+  function submitCart() { // is defined but never used
+    localStorage.deleteItem('cart');
+    console.log('Succesfully bought ' + result.length + ' items!');
+
+    window.location.reload();
+  }
+
+  function deleteItem(value) {
+    const index = result.findIndex(cart => cart.Name === value.Name);
+    const cart = [...result];
+    if (index > -1) {
+      cart.splice(index, 1);
+      setResult(cart);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    console.log('item removed');
+  }
+  */
+// remove item in cart
+// total sum
+// purchase/buy/submit -> go to checkout
+// emty cart -> timeout -> back to home
 
   return (
     <div>
@@ -16,7 +48,7 @@ const Cart = () => {
           <tr>
             <th>Product</th>
             <th> Quantity: 
-              <input type="number" min={0} className='quantity' />
+              <input type='number' min={0} className='quantity' />
             </th>
             <th>Price</th>
             <th>Total amount</th>
@@ -29,7 +61,7 @@ const Cart = () => {
             <td>Antal</td>
             <td>Pris</td>
             <td>Slutsumma</td>
-            <button className='nope'> <FaTrashAlt /> </button> {/* onClick={() => removeItem(cart)} */}
+            <button className='nope' > <FaTrashAlt /> </button>
           </tr>
         </tbody>
       </table>

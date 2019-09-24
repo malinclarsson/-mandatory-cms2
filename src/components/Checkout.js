@@ -2,6 +2,10 @@ import React from 'react';
 import Navbar from './Navbar';
 
 const Checkout = () => {
+
+// purchase/buy/submit -> go to Thanks -> emty cart -> timeout -> back to home
+
+
   return (
     <div>
       <Navbar />
@@ -9,7 +13,7 @@ const Checkout = () => {
 
       <div className='formContainer'>
         <form>
-          <input type='hidden' value='' name='analytics_event_id'></input>
+          <input type='hidden' /* value='' */ ></input>
 
           <div className='form-row'>
             <label>Firstname</label>
