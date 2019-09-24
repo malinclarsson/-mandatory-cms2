@@ -6,12 +6,12 @@ import Navbar from './Navbar';
 import { FaCartArrowDown } from 'react-icons/fa';
 // import { debounce } from 'debounce';  -> filtrering
 
-const Main = () => { //props, result
+const Main = (props, result) => { //props, result behövs inte längre?
 
   const [results, setResult] = useState([]);
-  const [initResult, setInitResult] = useState([]);
-  const [filterResult, setFilterResult] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const [initResult, setInitResult] = useState([]); // 'initResult' is assigned a value but never used (in previous, now removed, function)
+  const [filterResult, setFilterResult] = useState([]); // 'setFilterResult' is assigned a value but never used (in previous, now removed, function)
+  const [inputValue, setInputValue] = useState('');
   const [checked, setChecked] = useState(false);
   const [page, setPage] = useState(1);
   const [max, setMax] = useState(1);
@@ -30,7 +30,7 @@ const Main = () => { //props, result
           console.log('Error fetching the api - no inputValue')
         });
     } else if(checked){
-      axios.get("http://192.168.99.102:8080/api/collections/get/Products?filter[stock][$regex]=[1-9]")
+      axios.get('http://192.168.99.102:8080/api/collections/get/Products?filter[stock][$regex]=[1-9]')
         .then(res => {
           setResult(res.data.entries);
           setInitResult(res.data.entries);
@@ -55,8 +55,20 @@ const Main = () => { //props, result
   }, [page, inputValue, checked]);
 
   //-----------------------------------------------------------------------
+    // addToCart
+    function addToCart() {
+      props.setCart([...props.cart, result]);  // ????
 
+      const cart =JSON.parse(localStorage.getItem('cart')) || []; // parsa items i cart ELLER en tom array (tom cart)
+      console.log('cart before adding: ' + cart);
 
+      cart.push(result);
+      console.log('added to cart');
+      console.log('cart after adding: ' + cart);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  
+  //-----------------------------------------------------------------------
     // addToCart
   /*
   function addToCart() {
@@ -75,14 +87,17 @@ const Main = () => { //props, result
   return (
     <body>
       <Navbar />
-      
-      <input type="text" placeholder="Search..." value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+      <div className='searchDiv'>
+        <input className='searchBar' type='text' placeholder='Search...' value={inputValue} onChange={(e) => setInputValue(e.target.value)} /> {/* Debounce? */}
+      </div>
 
       <div className='inStock'>
         <br></br>
         In Stock :{' '}
-        <input type="checkbox" onChange={(e) => setChecked(e.target.checked)} />
+        <input type='checkbox' onChange={(e) => setChecked(e.target.checked)} />
       </div>
+
+
 
       <div className='container'>
 
