@@ -54,41 +54,20 @@ const Main = (props, result) => { //props, result behövs inte längre?
 
   }, [page, inputValue, checked]);
 
-  //-----------------------------------------------------------------------
-    // addToCart
+
+    //-----------------------------------------------------------------------
     function addToCart() {
-      props.setCart([...props.cart, result]);  // ????
-
-      const cart =JSON.parse(localStorage.getItem('cart')) || []; // parsa items i cart ELLER en tom array (tom cart)
-      console.log('cart before adding: ' + cart);
-
-      cart.push(result);
-      console.log('added to cart');
-      console.log('cart after adding: ' + cart);
-      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('added to cart!')
     }
-  
-  //-----------------------------------------------------------------------
-    // addToCart
-  /*
-  function addToCart() {
-    props.setCart([...props.cart, result]);  // ????
-    console.log('added to cart');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    console.log('cart right now: ' + cart);
-
-    cart.push(result);
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }
-  */
-  //-----------------------------------------------------------------------
-
+    //-----------------------------------------------------------------------
 
   return (
     <body>
       <Navbar />
+
       <div className='searchDiv'>
-        <input className='searchBar' type='text' placeholder='Search...' value={inputValue} onChange={(e) => setInputValue(e.target.value)} /> {/* Debounce? */}
+        <input className='searchBar' type='text' placeholder='Search...' 
+               value={inputValue} onChange={(e) => setInputValue(e.target.value)} /> {/* Debounce? */}
       </div>
 
       <div className='inStock'>
@@ -103,7 +82,7 @@ const Main = (props, result) => { //props, result behövs inte längre?
 
       {filterResult.length ? filterResult.map((result) => (
           <div className='card' key={result._id}>
-            <Link to={`/Details/${result._id}`}><h3>{result.name}</h3></Link>
+            <Link to={`/Details/${result._id}`}> <h3>{result.name}</h3> </Link>
             <p><img src={'http://192.168.99.102:8080/' + result.img.path} alt={'avatar'}></img></p>
             <p className='text'>{result.description}</p>
             <div className='numbers'>
@@ -116,17 +95,16 @@ const Main = (props, result) => { //props, result behövs inte längre?
 
       results.map(result => (
           <div className='card' key={result._id}>
-            <Link to={`/Details/${result._id}`}><h3>{result.name}</h3></Link>
+            <Link to={`/Details/${result._id}`}> <h3>{result.name}</h3> </Link>
             <p><img src={'http://192.168.99.102:8080/' + result.img.path} alt={'avatar'}></img></p>
             <p className='text'>{result.description}</p>
             <div className='numbers'>
               <p>Price: {result.stock}sek</p>
               <p>In stock: {result.stock}</p>
-              <button className='buyBTS'>{' '}<FaCartArrowDown />{' '}</button>
+              <button className='buyBTS' onClick={addToCart}>{' '}<FaCartArrowDown />{' '}</button>
             </div>
           </div>
         ))}
-
 
       </div>
 

@@ -5,33 +5,12 @@ import { FaTrashAlt } from 'react-icons/fa';
 
 const Cart = () => {
 
-  /*
-  const [result, setResult] = useState(JSON.parse(localStorage.getItem('cart')) || []); //cart ELLER tom array
+//-----------------------------------------------------------------------
+function goToCheckout() {
+  alert('Go to Checkout')
+}
+//-----------------------------------------------------------------------
 
-  function clearCart() { // is defined but never used
-    localStorage.deleteItem('cart');
-    console.log('Cart cleared');
-    window.location.reload();
-  }
-
-  function submitCart() { // is defined but never used
-    localStorage.deleteItem('cart');
-    console.log('Succesfully bought ' + result.length + ' items!');
-
-    window.location.reload();
-  }
-
-  function deleteItem(value) {
-    const index = result.findIndex(cart => cart.Name === value.Name);
-    const cart = [...result];
-    if (index > -1) {
-      cart.splice(index, 1);
-      setResult(cart);
-      localStorage.setItem('cart', JSON.stringify(cart));
-    }
-    console.log('item removed');
-  }
-  */
 // remove item in cart
 // total sum
 // purchase/buy/submit -> go to checkout
@@ -66,7 +45,9 @@ const Cart = () => {
         </tbody>
       </table>
 						</div>
-						<button className='checkout' onClick={(<Link to='/Checkout'></Link>)}>Go to checkout</button>
+						<Link to='/Checkout'>
+              <button className='checkout' onClick={goToCheckout}>Go to checkout</button>
+            </Link>
     </div>
   );
 };
