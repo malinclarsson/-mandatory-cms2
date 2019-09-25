@@ -9,7 +9,9 @@ import { FaCartArrowDown } from 'react-icons/fa';
 const Main = (props, result) => { //props, result behövs inte längre?
 
   const [results, setResult] = useState([]);
+  // eslint-disable-next-line
   const [initResult, setInitResult] = useState([]); // 'initResult' is assigned a value but never used (in previous, now removed, function)
+  // eslint-disable-next-line
   const [filterResult, setFilterResult] = useState([]); // 'setFilterResult' is assigned a value but never used (in previous, now removed, function)
   const [inputValue, setInputValue] = useState('');
   const [checked, setChecked] = useState(false);
