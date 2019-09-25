@@ -91,6 +91,22 @@ img {
   padding-left: 30px;
 }
 
+/* Details */
+.bigCard {
+  width: 30%;
+  min-width: 1000px;
+  height: auto;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid lightgrey 1px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px 0px #00000024;
+  justify-content: space-evenly;
+}
+
 /* Cart */
 .tableContainer {
   display: flex;
@@ -175,7 +191,7 @@ form {
 .pay {
   position: absolute;
   right: 30%;
-  top: 60%;
+  top: 70%;
   background-color: white;
   border: 1 solid lightgrey;
   border-radius: 5px;

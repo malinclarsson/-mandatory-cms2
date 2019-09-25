@@ -12,8 +12,8 @@ const Details = (props) => {
             .then((res) => setResult(res.data.entries[0]));
     }, [props.match.params.id]);
 
-  console.log("props.match.params.id = " + props.match.params.id) //Hämtar två gånger: 1:a=undefined,  2:a=null
-  console.log("result = " + result) //Hämtar två gånger: 1:a=null,  2:a=undefined
+  console.log('props.match.params.id = ' + props.match.params.id) //Hämtar två gånger: 1:a=undefined,  2:a=null
+  console.log('result = ' + result) //Hämtar två gånger: 1:a=null,  2:a=undefined
   
   //------------------------------------------------------
   // addToCart  
@@ -24,20 +24,20 @@ const Details = (props) => {
         <Navbar />
         
         {!result ? <h3>Loading...</h3> :
-          <div className='card'> {/* key={result._id}*/}
+          <div className='bigCard'> {/* key={result._id}*/}
             <h2 >{result.name}</h2>
             <h2 >{result.description}</h2>
             <p >Price: {result.price}sek</p>
             <p >In stock: {result.stock}</p>
             <p >
               <img
-                src={"http://192.168.99.102:8080/" + result.img.path}
+                src={'http://192.168.99.102:8080/' + result.img.path}
                 alt='product'>
               </img>
             </p>
             {result.gallery.map(item =>
               <p>
-                <img src={"http://192.168.99.102:8080/" + result.gallery.path}
+                <img src={'http://192.168.99.102:8080/' + result.gallery.path}
                     alt='gallery'>
                 </img>
               </p>)}

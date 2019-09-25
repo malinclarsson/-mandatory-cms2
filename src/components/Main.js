@@ -4,7 +4,6 @@ import '../index.css';
 import axios from 'axios';
 import Navbar from './Navbar';
 import { FaCartArrowDown } from 'react-icons/fa';
-
 // import { debounce } from 'debounce';  -> filtrering
 
 const Main = () => { //props, result behövs inte längre
@@ -70,7 +69,7 @@ const Main = () => { //props, result behövs inte längre
 
       <div className='searchDiv'>
         <input className='searchBar' type='text' placeholder='Search...' 
-               value={inputValue} onChange={(e) => setInputValue(e.target.value)} /> {/* Debounce? */}
+               value={inputValue} onChange={(e) => setInputValue(e.target.value)} /> {/* använda debounce? */}
       </div>
 
       <div className='inStock'>
@@ -94,7 +93,6 @@ const Main = () => { //props, result behövs inte längre
               </div>
             </div>
           )):
-
 
         results.map(result => (
             <div className='card' key={result._id}>
