@@ -4,9 +4,10 @@ import '../index.css';
 import axios from 'axios';
 import Navbar from './Navbar';
 import { FaCartArrowDown } from 'react-icons/fa';
+
 // import { debounce } from 'debounce';  -> filtrering
 
-const Main = (props, result) => { //props, result behövs inte längre?
+const Main = () => { //props, result behövs inte längre?
 
   const [results, setResult] = useState([]);
   // eslint-disable-next-line
@@ -64,7 +65,7 @@ const Main = (props, result) => { //props, result behövs inte längre?
     //-----------------------------------------------------------------------
 
   return (
-    <body>
+    <div>
       <Navbar />
 
       <div className='searchDiv'>
@@ -113,11 +114,11 @@ const Main = (props, result) => { //props, result behövs inte längre?
 
       <div className='pages'>
         <button onClick={() => setPage(page - 1)}>&lt;</button>
-        <input type='number' min={1} max={max} value={page} />
+        <input type='number' min={1} max={max} defaultValue={page} />}
         <button onClick={() => setPage(page + 1)}>&gt;</button>
       </div>
       
-    </body>
+    </div>
   );
 };
 
