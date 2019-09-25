@@ -7,7 +7,7 @@ import { FaCartArrowDown } from 'react-icons/fa';
 
 // import { debounce } from 'debounce';  -> filtrering
 
-const Main = () => { //props, result behövs inte längre?
+const Main = () => { //props, result behövs inte längre
 
   const [results, setResult] = useState([]);
   // eslint-disable-next-line
@@ -83,38 +83,38 @@ const Main = () => { //props, result behövs inte längre?
 
       <div className='container'>
 
-      {filterResult.length ? filterResult.map((result) => (
-          <div className='card' key={result._id}>
-            <Link to={`/Details/${result._id}`}> <h3>{result.name}</h3> </Link>
-            <p><img src={'http://192.168.99.102:8080/' + result.img.path} alt={'avatar'}></img></p>
-            <p className='text'>{result.description}</p>
-            <div className='numbers'>
-              <p>Price: {result.stock}sek</p>
-              <p>In stock: {result.stock}</p>
+        {filterResult.length ? filterResult.map((result) => (
+            <div className='card' key={result._id}>
+              <Link to={`/Details/${result._id}`}> <h3>{result.name}</h3> </Link>
+              <p><img src={'http://192.168.99.102:8080/' + result.img.path} alt={'avatar'}></img></p>
+              <p className='text'>{result.description}</p>
+              <div className='numbers'>
+                <p>Price: {result.stock}sek</p>
+                <p>In stock: {result.stock}</p>
+              </div>
             </div>
-          </div>
-        )):
+          )):
 
 
-      results.map(result => (
-          <div className='card' key={result._id}>
-            <Link to={`/Details/${result._id}`}> <h3>{result.name}</h3> </Link>
-            <p><img src={'http://192.168.99.102:8080/' + result.img.path} alt={'avatar'}></img></p>
-            <p className='text'>{result.description}</p>
-            <div className='numbers'>
-              <p>Price: {result.stock}sek</p>
-              <p>In stock: {result.stock}</p>
-              <button className='buyBTS' onClick={addToCart}>{' '}<FaCartArrowDown />{' '}</button>
+        results.map(result => (
+            <div className='card' key={result._id}>
+              <Link to={`/Details/${result._id}`}> <h3>{result.name}</h3> </Link>
+              <p><img src={'http://192.168.99.102:8080/' + result.img.path} alt={'avatar'}></img></p>
+              <p className='text'>{result.description}</p>
+              <div className='numbers'>
+                <p>Price: {result.stock}sek</p>
+                <p>In stock: {result.stock}</p>
+                <button className='buyBTS' onClick={addToCart}>{' '}<FaCartArrowDown />{' '}</button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
 
       </div>
 
 
       <div className='pages'>
         <button onClick={() => setPage(page - 1)}>&lt;</button>
-        <input type='number' min={1} max={max} defaultValue={page} />}
+        <input type='number' min={1} max={max} defaultValue={page} />
         <button onClick={() => setPage(page + 1)}>&gt;</button>
       </div>
       
