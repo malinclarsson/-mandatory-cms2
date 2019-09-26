@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 // import { FaCartArrowDown } from 'react-icons/fa';
 // import { debounce } from 'debounce';  -> filtrering
 
-const Main = () => { //props, result behövs inte längre
+const Main = () => {
 
   const [results, setResult] = useState([]);
   // eslint-disable-next-line
@@ -71,8 +71,6 @@ const Main = () => { //props, result behövs inte längre
         In Stock :{' '}
         <input type='checkbox' onChange={(e) => setChecked(e.target.checked)} />
       </div>
-
-
 
       <div className='container'>
 

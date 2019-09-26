@@ -12,11 +12,9 @@ const Details = (props) => {
             .then((res) => setResult(res.data.entries[0]));
     }, [props.match.params.id]);
 
-  console.log('props.match.params.id = ' + props.match.params.id) //Hämtar två gånger: 1:a=undefined,  2:a=null
-  console.log('result = ' + result) //Hämtar två gånger: 1:a=null,  2:a=undefined
-  
-  //------------------------------------------------------
-  // addToCart  
+  console.log('props.match.params.id = ' + props.match.params.id)
+  console.log('result = ' + result)
+
   function addToCart() {
     alert('added to cart from Details');
     props.setCart([...props.cart, result]);

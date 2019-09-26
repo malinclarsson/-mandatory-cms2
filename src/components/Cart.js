@@ -5,21 +5,8 @@ import { FaTrashAlt } from 'react-icons/fa';
 
 const Cart = () => {
 
-  // remove item in cart
-  // total sum
-  // purchase/buy/submit -> go to checkout
-  // emty cart -> timeout -> back to home
-
   const [result, setResult] = useState(JSON.parse(localStorage.getItem('cart')) || []);
 
-  function goToCheckout() {
-    alert('Go to Checkout');
-    /* //--> Checkout istället
-    localStorage.removeItem('cart');
-    alert('Succesfully bought ' + result.length + ' items!');
-    window.location.reload();
-    */
-  }
   function removeItem(value) {
     const index = result.findIndex(cart => cart.name === value.name);
     const cart = [...result];
@@ -28,7 +15,10 @@ const Cart = () => {
       setResult(cart);
       localStorage.setItem('cart', JSON.stringify(cart));
     }
+  }
 
+  function goToCheckout() {
+    alert('Go to Checkout');
   }
 
   return (
@@ -65,10 +55,8 @@ const Cart = () => {
         </table>
       </div>
 
-
       <Link to='/Checkout'>
         <button className='checkout' onClick={goToCheckout}>Go to checkout</button>
-        {/* onClick={removeCart} */}
       </Link>
 
     </div>

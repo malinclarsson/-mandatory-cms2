@@ -4,17 +4,14 @@ import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 
 const Checkout = () => {
-  const [result, setResult] = useState(JSON.parse(localStorage.getItem('cart')) || []);
+  // eslint-disable-next-line
+  const [result, setResult] = useState(JSON.parse(localStorage.getItem('cart')) || []); // 'setResult' is assigned a value but never used
 
-  //-----------------------------------------------------------------------
   function goToThanks() {
     alert('Go to Thanks')
     localStorage.removeItem('cart');
     alert('Succesfully bought ' + result.length + ' items!');
-    //window.location.reload();
-    // empty cart
 }
-//-----------------------------------------------------------------------
 
   return (
     <div>
@@ -23,7 +20,7 @@ const Checkout = () => {
 
       <div className='formContainer'>
         <form>
-          <input type='hidden' /* value='' */></input>
+          <input type='hidden'></input>
 
           <div className='form-row'>
             <label>Firstname</label>
