@@ -17,6 +17,17 @@ const Details = (props) => {
   
   //------------------------------------------------------
   // addToCart  
+  function addToCart() {
+    alert('added to cart from Details');
+    props.setCart([...props.cart, result]);
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    console.log("THIS ONE HERE" + cart);
+
+    cart.push(result);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
   //------------------------------------------------------
 
   return (
@@ -24,7 +35,7 @@ const Details = (props) => {
         <Navbar />
         
         {!result ? <h3>Loading...</h3> :
-          <div className='bigCard'> {/* key={result._id}*/}
+          <div className='bigCard' key={result._id}>
             <h2 >{result.name}</h2>
             <h2 >{result.description}</h2>
             <p >Price: {result.price}sek</p>
@@ -41,7 +52,7 @@ const Details = (props) => {
                     alt='gallery'>
                 </img>
               </p>)}
-            <button className='buyBTS'> <FaCartArrowDown /> </button>
+            <button className='buyBTS' onClick={addToCart}> <FaCartArrowDown /> </button>
           </div>
         }
         </div>  

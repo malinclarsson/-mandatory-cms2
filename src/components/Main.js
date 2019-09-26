@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../index.css';
 import axios from 'axios';
 import Navbar from './Navbar';
-import { FaCartArrowDown } from 'react-icons/fa';
+// import { FaCartArrowDown } from 'react-icons/fa';
 // import { debounce } from 'debounce';  -> filtrering
 
 const Main = () => { //props, result behövs inte längre
@@ -57,12 +57,6 @@ const Main = () => { //props, result behövs inte längre
   }, [page, inputValue, checked]);
 
 
-    //-----------------------------------------------------------------------
-    function addToCart() {
-      alert('added to cart!')
-    }
-    //-----------------------------------------------------------------------
-
   return (
     <div>
       <Navbar />
@@ -102,7 +96,7 @@ const Main = () => { //props, result behövs inte längre
               <div className='numbers'>
                 <p>Price: {result.stock}sek</p>
                 <p>In stock: {result.stock}</p>
-                <button className='buyBTS' onClick={addToCart}>{' '}<FaCartArrowDown />{' '}</button>
+                {/* <button className='buyBTS' onClick={addToCart}>{' '}<FaCartArrowDown />{' '}</button> */}
               </div>
             </div>
           ))}

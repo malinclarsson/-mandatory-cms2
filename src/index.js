@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -10,13 +10,16 @@ import Thanks from './components/Thanks.js';
 import NotFound from './components/NotFound.js';
 
 const App = () => {
+  const [cart, setCart] = useState([]);
+  console.log(cart);
+  
 
   return (
     <Router>
       <Switch>
         <Route exact path='/' component={Main} />
-        <Route path='/Details/:id'  component={Details} />
-        <Route path='/Cart' component={Cart} />
+        <Route path='/Details/:id' render={(props) => <Details {...props} cart={cart} setCart={setCart} />} />
+        <Route path='/Cart' render={() => <Cart cart={cart} setCart={setCart} />} />
         <Route path='/Checkout' component={Checkout} />
         <Route path='/Thanks' component={Thanks} />
         <Route component={NotFound} />

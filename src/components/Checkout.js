@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 
 const Checkout = () => {
-  // purchase/buy/submit -> go to Thanks -> emty cart -> timeout -> back to home
+  const [result, setResult] = useState(JSON.parse(localStorage.getItem('cart')) || []);
 
   //-----------------------------------------------------------------------
-function goToThanks() {
-  alert('Go to Thanks')
-  // empty cart
+  function goToThanks() {
+    alert('Go to Thanks')
+    localStorage.removeItem('cart');
+    alert('Succesfully bought ' + result.length + ' items!');
+    //window.location.reload();
+    // empty cart
 }
 //-----------------------------------------------------------------------
 
