@@ -20,10 +20,9 @@ const Reviews = props => {
         <div>
           <h4>Name</h4> {/* {review.name} */}
           <p className='rating'>Rating</p> {/* {review.rating} */}
-          <p>Body</p> {/* {review.bodyname} */}
+          <p>Body</p> {/* {review.body} */}
 					<hr></hr>
         </div>
-
       </div>
     </div>
   );
