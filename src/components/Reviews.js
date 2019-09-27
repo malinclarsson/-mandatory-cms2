@@ -12,7 +12,7 @@ const Reviews = props => {
 			.then(res => SetReviews(res.data.entries));
 			
 	
-  }, [props.match.params.id]);
+  }, []);
   console.log("my reviews : " + JSON.stringify(reviews)); // hämtar ANDRA gången. Första gången är null
 
   return (
