@@ -1,26 +1,35 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Navbar from "./Navbar";
 
 // D ----------------------------------------------------------------------------------
-const Reviews = (props) => {
-	const [Reviews, SetReviews] = useState(null);
+const Reviews = props => {
+  const [reviews, SetReviews] = useState(null);
 
-	useEffect(() => {
-			axios.get(`http://192.168.99.102:8080/api/collections/get/Reviews`)
-					.then((res) => SetReviews(res.data.entries));
-
-	}, [props.match.params.id]);
-	console.log("my reviews : " + JSON.stringify(Reviews));
+  useEffect(() => {
+    axios
+      .get(`http://192.168.99.102:8080/api/collections/get/Reviews`)
+			.then(res => SetReviews(res.data.entries));
+			
 	
-	return (
-		
-			<div>
-					<span>testing</span>
-			</div>
-		
-	)
-}
-export default Reviews
+  }, [props.match.params.id]);
+  console.log("my reviews : " + JSON.stringify(reviews));
+
+  return (
+    <div>
+      <Navbar />
+      <div className="tillfällig">
+        <div>
+          <h4>Name</h4>
+          <p className='rating'>Rating</p>
+          <p>Body // text</p>
+					<hr></hr>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default Reviews;
 //-------------------------------------------------------------------------------------
 // M
 /*

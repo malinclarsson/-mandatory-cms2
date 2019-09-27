@@ -52,7 +52,9 @@ const Details = (props) => {
                     alt='gallery'>
                 </img>
               </p>)}
-              </div>
+            </div>
+
+            <div className='reviews'></div>
 
             <button className='buyBTS' onClick={addToCart}> <FaCartArrowDown /> </button>
           </div>
