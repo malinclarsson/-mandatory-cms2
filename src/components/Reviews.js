@@ -13,8 +13,7 @@ const Reviews = props => {
 			
 	
   }, []);
-	// console.log("my reviews : " + JSON.stringify(reviews)); // hämtar ANDRA gången. Första gången är null
-	console.log('my reviews : ' + reviews); // [object Object],[object Object],[object Object]...
+	console.log('my reviews : ', reviews); 
 
   return (
     <div>

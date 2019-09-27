@@ -43,8 +43,7 @@ const Cart = () => {
 
           <tbody>
 
-          {/*} // IF-sats för att kolla ifall items redan finns i cart/samma --> slå ihop antal och pris */}
-          {cartItems.map((cart) => ( // Warning: Text nodes cannot appear as a child of <tbody>
+          {cartItems.map((cart) => (
             <tr>
               <td>{cart.name}</td>
               <td><input type='number' value={cart.quantity || 1} onChange={e => updateItem(cart._id, e.target.value)} min={1} placeholder='1' className='quantity' /></td>
