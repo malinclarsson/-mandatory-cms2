@@ -1,9 +1,9 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import Navbar from "./Navbar";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import Navbar from './Navbar';
 
 const Thanks = () => {
-  console.log("Cart is now empty");
+  console.log('Cart is now empty');
 
   return (
     <div>

@@ -84,8 +84,8 @@ img {
 
 /* Details */
 .bigCard {
-  width: 30%;
-  min-width: 700px;
+  font-size: 15px;
+  width: 500px;
   height: auto;
   margin: 10px;
   margin-left: 20%;
@@ -109,17 +109,23 @@ img {
   cursor: pointer;
 }
 .galleryItem:hover {
-  width: 85px;
-  height: auto;
+  box-shadow: 10px 10px 5px 0px #00000024;
 }
 
 .reviews {
   border: solid lightgrey 1px;
   border-radius: 5px;
   box-shadow: 10px 10px 5px 0px #00000024;
-  width: 600px;
-  min-height: 150px;
+  width: 450px;
+
   height: auto;
+}
+.reviewCard {
+  padding-left: 20px;
+  padding-right: 10px;
+  margin-top: 50px;
+  width: auto;
+  margin: 5px;
 }
 
 .buyBTS {
@@ -137,9 +143,6 @@ img {
 .rating {
   color: orangered;
   font-weight: bold;
-}
-.rating:hover {
-  font-size: 20px;
 }
 
 /* Cart */
@@ -238,15 +241,3 @@ form {
   margin-left: 50%;
   }
 
-/*-------------------------------------------*/
-
-
-
-
-.tillfällig {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  width: auto;
-  margin: 5px;
-}

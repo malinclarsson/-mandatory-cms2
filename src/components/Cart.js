@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
@@ -21,7 +21,7 @@ const Cart = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 
-  console.log("cart", result);
+  console.log('cart', result);
   const cartItems = Object.values(result);
 
   return (
