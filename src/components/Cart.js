@@ -6,16 +6,16 @@ import { FaTrashAlt } from 'react-icons/fa';
 const Cart = () => {
   const [result, setResult] = useState(JSON.parse(localStorage.getItem('cart')) || {});
 
-  function removeItem(index) {
-    const cart = [...result];
-      cart.splice(index, 1);
-      setResult(cart);
-      localStorage.setItem('cart', JSON.stringify(cart));
+  function removeItem(id) {
+    const cart = {...result};
+    delete cart[id];
+    setResult(cart);
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
-  function updateItem(index, quantity){
-    const cart = [...result];
-    cart[index].quantity = quantity;
+  function updateItem(id, quantity){
+    const cart = {...result};
+    cart[id].quantity = quantity;
     setResult(cart);
     localStorage.setItem('cart', JSON.stringify(cart));
   }
@@ -44,13 +44,13 @@ const Cart = () => {
           <tbody>
 
           {/*} // IF-sats för att kolla ifall items redan finns i cart/samma --> slå ihop antal och pris */}
-          {cartItems.map((cart, i) => ( // Warning: Text nodes cannot appear as a child of <tbody>
+          {cartItems.map((cart) => ( // Warning: Text nodes cannot appear as a child of <tbody>
             <tr>
               <td>{cart.name}</td>
-              <td><input type='number' value={cart.quantity || 1} onChange={e => updateItem(i, e.target.value)} min={1} placeholder='1' className='quantity' /></td>
+              <td><input type='number' value={cart.quantity || 1} onChange={e => updateItem(cart._id, e.target.value)} min={1} placeholder='1' className='quantity' /></td>
               <td>{cart.price} sek</td>
               <td>Slutsumma</td>
-              <td className='nope' onClick={() => removeItem(i)}>{' '}<FaTrashAlt />{' '}</td>
+              <td className='nope' onClick={() => removeItem(cart._id)}>{' '}<FaTrashAlt />{' '}</td>
             </tr>
           ))}
           </tbody>
