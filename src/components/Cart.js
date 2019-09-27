@@ -53,10 +53,7 @@ const Cart = () => {
         </table>
       </div>
       
-      {result.length && result.map(cart => (
-        <p>{cart.price}</p> // få dessa till en array
-      ))}
-      <h2 className='total'> Total cost of this order: {Math.round(result.map(cart => parseFloat(cart.price)).reduce((total, num) => total + num, 0))}sek</h2>
+      <h2 className='total'> Total cost of this order: {Math.round(result.reduce((total, cart) => total + (parseFloat(cart.price)), 0))}sek</h2>
 
       <Link to='/Checkout'>
         <button className='checkout'>Go to checkout</button>
