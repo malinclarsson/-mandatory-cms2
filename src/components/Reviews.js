@@ -13,18 +13,21 @@ const Reviews = props => {
 			
 	
   }, []);
-  console.log("my reviews : " + JSON.stringify(reviews)); // hämtar ANDRA gången. Första gången är null
+	// console.log("my reviews : " + JSON.stringify(reviews)); // hämtar ANDRA gången. Första gången är null
+	console.log('my reviews : ' + reviews); // [object Object],[object Object],[object Object]...
 
   return (
     <div>
       <Navbar />
-      <div className="tillfällig">
+
+      <div className="tillfällig"> 
         <div>
           <h4>Name</h4>
           <p className='rating'>Rating</p>
           <p>Body // text</p>
 					<hr></hr>
         </div>
+
       </div>
     </div>
   );

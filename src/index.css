@@ -170,22 +170,15 @@ table,th,td {
 tbody tr:nth-child(2n+1){
   background-color: #eeeeeed5;
 }
-
-  .checkout {
-  position: absolute;
-  right: 30%;
-  top: 50%;
-  background-color: white;
-  border: 1 solid lightgrey;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 10px 10px 5px 0px #00000024;
-  cursor: pointer;
+.quantity {
+  text-align: center;
+  margin-left: 10px;
+  width: 40px;
 }
 .nope {
   background-color: #eeeeee00;
   border: none;
-  width: 100%;
+  width: 45%;
   height: 100%;
   font-size: 1rem;
   display: flex;
@@ -193,6 +186,19 @@ tbody tr:nth-child(2n+1){
   padding-top: 20%;
   cursor: pointer;
 }
+
+
+  .checkout {
+  background-color: white;
+  border: 1 solid lightgrey;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 10px 10px 5px 0px #00000024;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 50%;
+  }
+
 
 /* Checkout */
 .formContainer {
@@ -220,15 +226,14 @@ form {
 
 }
 .pay {
-  position: absolute;
-  right: 30%;
-  top: 70%;
   background-color: white;
   border: 1 solid lightgrey;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 10px 10px 5px 0px #00000024;
-}
+  cursor: pointer;
+  margin-left: 50%;
+  }
 
 /*-------------------------------------------*/
 

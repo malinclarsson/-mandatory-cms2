@@ -39,7 +39,7 @@ const Cart = () => {
           {result.length && result.map(cart => ( // Warning: Text nodes cannot appear as a child of <tbody>.
             <tr>
               <td>{cart.name}</td>
-              <td><input type='number' min={0} className='quantity' /></td>
+              <td><input type='number' min={1} placeholder='1' className='quantity' /></td>
               <td>{cart.price} sek</td>
               <td>Slutsumma</td>
               <td className='nope' onClick={() => removeItem(cart)}>{' '}<FaTrashAlt />{' '}</td>
