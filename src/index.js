@@ -11,8 +11,8 @@ import Thanks from './components/Thanks.js';
 import NotFound from './components/NotFound.js';
 
 const App = () => {
-  const [cart, setCart] = useState([]);
-  console.log(cart);
+  const [cart, setCart] = useState({});
+  console.log("cart app",cart);
   
 
   return (

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
 
 const Cart = () => {
-  const [result, setResult] = useState(JSON.parse(localStorage.getItem('cart')) || []);
+  const [result, setResult] = useState(JSON.parse(localStorage.getItem('cart')) || {});
 
   function removeItem(index) {
     const cart = [...result];
@@ -21,6 +21,7 @@ const Cart = () => {
   }
 
   console.log("cart", result);
+  const cartItems = Object.values(result);
 
   return (
     <div>
@@ -43,7 +44,7 @@ const Cart = () => {
           <tbody>
 
           {/*} // IF-sats för att kolla ifall items redan finns i cart/samma --> slå ihop antal och pris */}
-          {result.length && result.map((cart, i) => ( // Warning: Text nodes cannot appear as a child of <tbody>
+          {cartItems.map((cart, i) => ( // Warning: Text nodes cannot appear as a child of <tbody>
             <tr>
               <td>{cart.name}</td>
               <td><input type='number' value={cart.quantity || 1} onChange={e => updateItem(i, e.target.value)} min={1} placeholder='1' className='quantity' /></td>
@@ -57,7 +58,7 @@ const Cart = () => {
         </table>
       </div>
       
-      <h2 className='total'> Total cost of this order: {Math.round(result.reduce((total, cart) => total + (parseFloat(cart.price) * (cart.quantity || 1)), 0))}sek</h2>
+      <h2 className='total'> Total cost of this order: {Math.round(cartItems.reduce((total, cart) => total + (parseFloat(cart.price) * (cart.quantity || 1)), 0))}sek</h2>
 
       <Link to='/Checkout'>
         <button className='checkout'>Go to checkout</button>

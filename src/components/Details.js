@@ -18,13 +18,19 @@ const Details = (props) => {
 
   function addToCart() {
     //alert('added to cart');
-    props.setCart([...props.cart, result]);
+    
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    let newCart;
+    if(cart.hasOwnProperty(result._id)){
+      cart[result._id].quantity += 1;
+      newCart = cart;
+    } else {
+      newCart = {...cart, [result._id]: {...result, quantity: 1}};
+    }
+    props.setCart(newCart);
 
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    cart.push({...result, quantity: 1});
-    localStorage.setItem('cart', JSON.stringify(cart));
-    console.log('item added to cart');
+    localStorage.setItem('cart', JSON.stringify(newCart));
+    console.log('item added to cart', newCart);
   }
 
 
