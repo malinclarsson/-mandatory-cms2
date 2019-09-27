@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Helmet } from "react-helmet";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,12 @@ const Checkout = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Checkout</title>
+      </Helmet>
+      
       <Navbar />
+
       <h1>Checkout</h1>
 
       <div className="formContainer">

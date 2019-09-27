@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from "react-helmet";
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
@@ -25,7 +26,12 @@ const Cart = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Cart</title>
+      </Helmet>
+      
       <Navbar />
+
       <h1>Cart</h1>
 
       <div className='tableContainer'>

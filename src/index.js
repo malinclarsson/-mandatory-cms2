@@ -20,7 +20,6 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={Main} />
         <Route path='/Details/:id' render={(props) => <Details {...props} cart={cart} setCart={setCart} />} />
-        <Route path='/Reviews/' component={Reviews} />
         <Route path='/Cart' render={() => <Cart cart={cart} setCart={setCart} />} />
         <Route path='/Checkout' component={Checkout} />
         <Route path='/Thanks' component={Thanks} />

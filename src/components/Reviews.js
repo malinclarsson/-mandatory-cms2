@@ -17,8 +17,6 @@ const Reviews = props => {
 
   return (
     <div>
-      <Navbar />
-
       <div className="tillfällig"> 
         <div>
           <h4>Name</h4>

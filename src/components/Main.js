@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import "../index.css";
 import axios from "axios";
@@ -64,6 +65,10 @@ const Main = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
+      
       <Navbar />
 
       <div className="searchDiv">
