@@ -8,9 +8,9 @@ const Checkout = () => {
   const [result, setResult] = useState(JSON.parse(localStorage.getItem('cart')) || []); // 'setResult' is assigned a value but never used
 
   function goToThanks() {
-    alert('Go to Thanks')
+    //alert('Go to Thanks')
     localStorage.removeItem('cart');
-    alert('Succesfully bought ' + result.length + ' items!');
+    console.log('You bought ' + result.length + ' items');
 }
 
   return (

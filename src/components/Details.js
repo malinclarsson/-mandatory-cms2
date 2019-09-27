@@ -12,21 +12,20 @@ const Details = (props) => {
             .then((res) => setResult(res.data.entries[0]));
     }, [props.match.params.id]);
 
-  console.log('props.match.params.id = ' + props.match.params.id)
-  console.log('result = ' + result)
+  //console.log('props.match.params.id = ' + props.match.params.id)
+  //console.log('result = ' + result)
 
   function addToCart() {
-    alert('added to cart from Details');
+    //alert('added to cart');
     props.setCart([...props.cart, result]);
 
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    console.log("THIS ONE HERE" + cart);
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     cart.push(result);
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log('item added to cart');
   }
 
-  //------------------------------------------------------
 
   return (
       <div>
@@ -38,18 +37,23 @@ const Details = (props) => {
             <h2 >{result.description}</h2>
             <p >Price: {result.price}sek</p>
             <p >In stock: {result.stock}</p>
-            <p >
+            <p>
               <img
                 src={'http://192.168.99.102:8080/' + result.img.path}
                 alt='product'>
               </img>
             </p>
+            <div className='gallery'>
             {result.gallery.map(item =>
               <p>
-                <img src={'http://192.168.99.102:8080/' + result.gallery.path}
+                <img
+                    className='galleryItem'
+                    src={'http://192.168.99.102:8080/' + item.path} 
                     alt='gallery'>
                 </img>
               </p>)}
+              </div>
+
             <button className='buyBTS' onClick={addToCart}> <FaCartArrowDown /> </button>
           </div>
         }

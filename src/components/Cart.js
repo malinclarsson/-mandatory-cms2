@@ -17,10 +17,6 @@ const Cart = () => {
     }
   }
 
-  function goToCheckout() {
-    alert('Go to Checkout');
-  }
-
   return (
     <div>
       <Navbar />
@@ -56,9 +52,9 @@ const Cart = () => {
       </div>
 
       <Link to='/Checkout'>
-        <button className='checkout' onClick={goToCheckout}>Go to checkout</button>
+        <button className='checkout'>Go to checkout</button> {/* onClick={goToCheckout} */}
       </Link>
-
+      
     </div>
   );
 };

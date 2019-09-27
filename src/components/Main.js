@@ -53,7 +53,6 @@ const Main = () => {
           console.log('Error fetching the api')
         });
     }
-
   }, [page, inputValue, checked]);
 
 
@@ -88,13 +87,14 @@ const Main = () => {
 
         results.map(result => (
             <div className='card' key={result._id}>
-              <Link to={`/Details/${result._id}`}> <h3>{result.name}</h3> </Link>
-              <p><img src={'http://192.168.99.102:8080/' + result.img.path} alt={'avatar'}></img></p>
-              <p className='text'>{result.description}</p>
+              <Link to={`/Details/${result._id}`}> 
+                <h3>{result.name}</h3> 
+                <p><img src={'http://192.168.99.102:8080/' + result.img.path} alt={'avatar'}></img></p>
+              </Link>
+              {/* <p className='text'>{result.description}</p> */}
               <div className='numbers'>
                 <p>Price: {result.stock}sek</p>
                 <p>In stock: {result.stock}</p>
-                {/* <button className='buyBTS' onClick={addToCart}>{' '}<FaCartArrowDown />{' '}</button> */}
               </div>
             </div>
           ))}
