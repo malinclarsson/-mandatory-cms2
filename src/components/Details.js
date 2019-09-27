@@ -14,7 +14,7 @@ const Details = (props) => {
     }, [props.match.params.id]);
 
   //console.log('props.match.params.id = ' + props.match.params.id)
-  //console.log('result = ' + result)
+  console.log('result = ' , result)
 
   function addToCart() {
     //alert('added to cart');
@@ -22,7 +22,7 @@ const Details = (props) => {
 
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    cart.push(result);
+    cart.push({...result, quantity: 1});
     localStorage.setItem('cart', JSON.stringify(cart));
     console.log('item added to cart');
   }
