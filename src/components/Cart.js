@@ -15,23 +15,7 @@ const Cart = () => {
       localStorage.setItem('cart', JSON.stringify(cart));
     }
   }
-//------------------------------------------------------
-// totalsumma för ordern
-//------------------------------------------------------
-  let array = [59, 59, 59, 59, 59, 599, 129, 249]; // FABRICATED from cart
-  let totalSum;
- 
-  function getSum(total, num) {
-    return total + Math.round(num);
-  }
-  
-  function myFunction(item) {
-    totalSum = array.reduce(getSum, 0);
-    console.log('räknar');
-  }
 
-  myFunction();
-//------------------------------------------------------
 
 
   return (
@@ -72,7 +56,7 @@ const Cart = () => {
       {result.length && result.map(cart => (
         <p>{cart.price}</p> // få dessa till en array
       ))}
-      <h2 className='total'> Total cost of this order: {totalSum}sek</h2>
+      <h2 className='total'> Total cost of this order: {Math.round(result.map(cart => parseFloat(cart.price)).reduce((total, num) => total + num, 0))}sek</h2>
 
       <Link to='/Checkout'>
         <button className='checkout'>Go to checkout</button>
