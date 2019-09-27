@@ -49,7 +49,7 @@ const Cart = () => {
               <td>{cart.name}</td>
               <td><input type='number' value={cart.quantity || 1} onChange={e => updateItem(cart._id, e.target.value)} min={1} placeholder='1' className='quantity' /></td>
               <td>{cart.price} sek</td>
-              <td>Slutsumma</td>
+              <td>{parseFloat(cart.price) * cart.quantity} sek</td>
               <td className='nope' onClick={() => removeItem(cart._id)}>{' '}<FaTrashAlt />{' '}</td>
             </tr>
           ))}
