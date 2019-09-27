@@ -118,7 +118,8 @@ img {
   border-radius: 5px;
   box-shadow: 10px 10px 5px 0px #00000024;
   width: 600px;
-  height: 200px;
+  min-height: 150px;
+  height: auto;
 }
 
 .buyBTS {

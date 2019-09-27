@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
+// import Reviews from './Reviews';
 import { FaCartArrowDown } from 'react-icons/fa';
 
 
@@ -54,7 +55,7 @@ const Details = (props) => {
               </p>)}
             </div>
 
-            <div className='reviews'></div>
+            <div className='reviews'> {/* <Reviews /> */} </div>
 
             <button className='buyBTS' onClick={addToCart}> <FaCartArrowDown /> </button>
           </div>

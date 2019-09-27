@@ -13,7 +13,7 @@ const Reviews = props => {
 			
 	
   }, [props.match.params.id]);
-  console.log("my reviews : " + JSON.stringify(reviews));
+  console.log("my reviews : " + JSON.stringify(reviews)); // hämtar ANDRA gången. Första gången är null
 
   return (
     <div>
@@ -35,7 +35,6 @@ export default Reviews;
 /*
 const Reviews = () => {
   const [results, setResult] = useState([]);
-
   useEffect(() => {
     axios
       .get("http://http://192.168.99.102:8080/api/collections/get/Reviews") // 404?
@@ -47,9 +46,7 @@ const Reviews = () => {
         console.log("Error fetching the api - No reviews found");
       });
   }, []);
-
   console.log("logged results: " + results);
-
   return (
     <body>
       <div>
@@ -59,7 +56,6 @@ const Reviews = () => {
               <h2>{result.title}</h2>
               <p>{result.body}</p>
               <p>{result.rating}</p>
-
               <hr></hr>
             </div>
           </section>
