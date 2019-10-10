@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import { FaCartArrowDown } from 'react-icons/fa';
 import Reviews from './Reviews';
 
-const Details = props => {
+const Details = (props, name, rating, body) => {
   const [result, setResult] = useState(null);
 
   useEffect(() => {
@@ -17,7 +17,6 @@ const Details = props => {
       .then(res => setResult(res.data.entries[0]));
   }, [props.match.params.id]);
 
-  //console.log('props.match.params.id = ' + props.match.params.id)
   console.log('result = ', result);
 
 
@@ -54,13 +53,13 @@ const Details = props => {
           <h2>{result.description}</h2>
           <p>Price: {result.price}sek</p>
           <p>In stock: {result.stock}</p>
-          <p>
+          <p key={result.img}>
             <img
               src={'http://192.168.99.102:8080/' + result.img.path}
               alt='product'
             ></img>
           </p>
-          <div className='gallery'>
+          <div className='gallery' >
             {result.gallery.map(item => (
               <p>
                 <img
@@ -72,8 +71,13 @@ const Details = props => {
             ))}
           </div>
 
-          <div className='reviews'> <Reviews /> </div>
-          
+          <div className='reviews'> 
+            <Reviews 
+              name={name} 
+              rating={rating}
+              body={body}
+            />
+          </div>
           <button className='buyBTS' onClick={addToCart}>{' '}<FaCartArrowDown />{' '}</button> 
         </div>
       )}
