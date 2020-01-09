@@ -52,7 +52,7 @@ const Main = () => {
             limit}`
         )
         .then(res => {
-          console.log(res.data.entries);
+          console.log(res.data.entries); 
           setResult(res.data.entries);
           setInitResult(res.data.entries);
           setMax(Math.floor(res.data.total / limit) + 1);

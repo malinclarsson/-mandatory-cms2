@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import Navbar from './Navbar';
-// import Reviews from './Reviews';
-import { FaCartArrowDown } from 'react-icons/fa';
 import Reviews from './Reviews';
+import { FaCartArrowDown } from 'react-icons/fa';
+
 
 const Details = (props, name, rating, body) => {
   const [result, setResult] = useState(null);
@@ -17,7 +17,7 @@ const Details = (props, name, rating, body) => {
       .then(res => setResult(res.data.entries[0]));
   }, [props.match.params.id]);
 
-  console.log('result = ', result);
+  console.log('result: ', result);
 
 
   function addToCart() {

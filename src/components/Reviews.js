@@ -6,9 +6,9 @@ const Reviews = (props, name, rating, body) => {
 
   useEffect(() => {	
     axios
-      .get(`http://192.168.99.102:8080/api/collections/get/Reviews?filter[_id]=${props.match.params.id}`)
+      .get(`http://192.168.99.102:8080/api/collections/get/Reviews`)
       .then(res => setReview(res.data.entries[0]));
-  }, [props.match.params.id]);
+  }, []);
 
   console.log('review = ', review); // loggar rätt id på reviews :D
 
@@ -18,9 +18,9 @@ const Reviews = (props, name, rating, body) => {
     <div>
       <div className='reviewCard'> 
         <div>
-          <h4>{review.name}</h4> {/* {review.name} */}
-          <p className='rating'>{review.rating}</p> {/* {review.rating} */}
-          <p>{review.body}</p> {/* {review.body} */}
+          <h4>name</h4> {/* {review.name} */}
+          <p className='rating'>rating</p> {/* {review.rating} */}
+          <p>body</p> {/* {review.body} */}
 					<hr></hr>
         </div>
       </div>
