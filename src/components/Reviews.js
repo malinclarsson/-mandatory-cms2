@@ -7,7 +7,7 @@ const Reviews = (result) => {
   useEffect(() => {	
     axios
       .get(`http://192.168.99.102:8080/api/collections/get/Reviews`)
-      .then(res => setReview(res.data.entries[1])); //must give an index, or else I get the whole array och reviews. 
+      .then(res => setReview(res.data.entries[5])); //must give an index, or else I get the whole array of reviews. 
   }, []);                                           //I need the specific index for the product chosen in Details.js
   console.log('review: ', review); 
 
