@@ -5,19 +5,17 @@ import Navbar from './Navbar';
 import Reviews from './Reviews';
 import { FaCartArrowDown } from 'react-icons/fa';
 
-
 const Details = (props, name, rating, body) => {
   const [result, setResult] = useState(null);
 
   useEffect(() => {
     axios
       .get(
-        `http://192.168.99.102:8080/api/collections/get/Products?filter[_id]=${props.match.params.id}`
-      )
+        `http://192.168.99.102:8080/api/collections/get/Products?filter[_id]=${props.match.params.id}`)
       .then(res => setResult(res.data.entries[0]));
   }, [props.match.params.id]);
-
   console.log('result: ', result);
+
 
 
   function addToCart() {
@@ -36,30 +34,27 @@ const Details = (props, name, rating, body) => {
     console.log('item added to cart', newCart);
   }
 
+
+
   return (
     <div>
       <Helmet>
         <title>Product Details</title>
       </Helmet>
-
       <Navbar />
 
-
-      {!result ? (
-        <h3>Loading...</h3>
-      ) : (
+      {!result ? (<h3>Loading...</h3>) : (
         <div className='bigCard' key={result._id}>
           <h2>{result.name}</h2>
           <h2>{result.description}</h2>
-          <p>Price: {result.price}sek</p>
-          <p>In stock: {result.stock}</p>
+          <p>Price: {result.price}sek, in stock: {result.stock}</p>
           <p key={result.img}>
             <img
               src={'http://192.168.99.102:8080/' + result.img.path}
               alt='product'
             ></img>
           </p>
-          <div className='gallery' >
+          <div className='gallery'>
             {result.gallery.map(item => (
               <p>
                 <img
@@ -71,14 +66,18 @@ const Details = (props, name, rating, body) => {
             ))}
           </div>
 
-          <div className='reviews'> 
+          <div className='reviews'>
             <Reviews 
               name={name} 
-              rating={rating}
-              body={body}
+              rating={rating} 
+              body={body} 
             />
           </div>
-          <button className='buyBTS' onClick={addToCart}>{' '}<FaCartArrowDown />{' '}</button> 
+          <button className='buyBTS' 
+                  onClick={addToCart}
+          >
+            <FaCartArrowDown />
+          </button>
         </div>
       )}
     </div>

@@ -21,8 +21,7 @@ const Main = () => {
     if (inputValue) {
       axios
         .get(
-          `http://192.168.99.102:8080/api/collections/get/Products?filter[name][$regex]=${inputValue}`
-        )
+          `http://192.168.99.102:8080/api/collections/get/Products?filter[name][$regex]=${inputValue}`)
         .then(res => {
           setResult(res.data.entries);
           setInitResult(res.data.entries);
@@ -34,8 +33,7 @@ const Main = () => {
     } else if (checked) {
       axios
         .get(
-          'http://192.168.99.102:8080/api/collections/get/Products?filter[stock][$regex]=[1-9]'
-        )
+          'http://192.168.99.102:8080/api/collections/get/Products?filter[stock][$regex]=[1-9]')
         .then(res => {
           setResult(res.data.entries);
           setInitResult(res.data.entries);
@@ -47,12 +45,9 @@ const Main = () => {
     } else {
       axios
         .get(
-          `http://192.168.99.102:8080/api/collections/get/Products?limit=${limit}&skip=${limit *
-            page -
-            limit}`
-        )
+          `http://192.168.99.102:8080/api/collections/get/Products?limit=${limit}&skip=${limit * page - limit}`)
         .then(res => {
-          console.log(res.data.entries); 
+          console.log(res.data.entries);
           setResult(res.data.entries);
           setInitResult(res.data.entries);
           setMax(Math.floor(res.data.total / limit) + 1);
@@ -68,7 +63,6 @@ const Main = () => {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      
       <Navbar />
 
       <div className='searchDiv'>
@@ -83,7 +77,7 @@ const Main = () => {
 
       <div className='inStock'>
         <br></br>
-        In Stock :{' '}
+        In Stock :
         <input type='checkbox' onChange={e => setChecked(e.target.checked)} />
       </div>
 
@@ -92,8 +86,7 @@ const Main = () => {
           ? filterResult.map(result => (
               <div className='card' key={result._id}>
                 <Link to={`/Details/${result._id}`}>
-                  {' '}
-                  <h3>{result.name}</h3>{' '}
+                  <h3>{result.name}</h3>
                 </Link>
                 <p>
                   <img

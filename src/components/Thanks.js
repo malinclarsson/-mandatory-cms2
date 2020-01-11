@@ -10,7 +10,6 @@ const Thanks = () => {
       <Helmet>
         <title>Thank you!</title>
       </Helmet>
-
       <Navbar />
 
       <h1>Thank you for shopping!</h1>

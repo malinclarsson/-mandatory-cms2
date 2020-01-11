@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 
 const Checkout = () => {
   // eslint-disable-next-line
-  const [result, setResult] = useState( JSON.parse(localStorage.getItem('cart')) || [] );
+  const [result, setResult] = useState(
+    JSON.parse(localStorage.getItem('cart')) || []
+  );
 
   function goToThanks() {
     localStorage.removeItem('cart');
@@ -16,11 +18,9 @@ const Checkout = () => {
       <Helmet>
         <title>Checkout</title>
       </Helmet>
-      
       <Navbar />
 
       <h1>Checkout</h1>
-
       <div className='formContainer'>
         <form>
           <input type='hidden'></input>
@@ -85,7 +85,11 @@ const Checkout = () => {
         </form>
       </div>
       <Link to='/Thanks'>
-        <button type='submit' className='pay' onClick={goToThanks}> Pay </button>
+        <button type='submit' 
+                className='pay' 
+                onClick={goToThanks}
+        >Pay
+        </button>
       </Link>
     </div>
   );
