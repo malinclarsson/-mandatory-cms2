@@ -7,20 +7,19 @@ const Reviews = (result) => {
   useEffect(() => {	
     axios
       .get(`http://192.168.99.102:8080/api/collections/get/Reviews`)
-      .then(res => setReview(res.data.entries[5])); //must give an index, or else I get the whole array of reviews. 
-  }, []);                                           //I need the specific index for the product chosen in Details.js
+      .then(res => setReview(res.data.entries[5])); //måste ge ett specifikt index, annars får jag hela arrayn
+  }, []);                                           //men behöver komma åt produktens id från Details.js
   console.log('review: ', review); 
 
 
-  //Trying to solve the problem by comparing result._by with review._by (in the right review).
-  //They have the same value in both result and review, but I can't access them at the same time
+  //Försökt jämföra  result._by with review._by ( reviewsamma värde i "rätt").
   console.log('result._by', result._by); // null
   console.log('review._by', review._by); //gives me a value
 
 
 
 
-  //renders the review, but only the one indexed in line 10.
+  //renderar reviews fint, men bara vad jag indexerat på rad 10
   return (
     <div>
       <div className='reviewCard'> 

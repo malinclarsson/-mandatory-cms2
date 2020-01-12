@@ -21,7 +21,7 @@ const Details = (props, name, rating, body) => {
   function addToCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || {};
     let newCart;
-    // put same items together
+    // grupperar samma objekt
     if (cart.hasOwnProperty(result._id)) {
       cart[result._id].quantity += 1;
       newCart = cart;
